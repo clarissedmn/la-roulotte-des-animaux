@@ -1,5 +1,5 @@
 import { getCollectionsList } from "@lib/data"
-import FeaturedProducts from "@modules/home/components/featured-products"
+import FeaturedProducts from "modules/home/components/presentation"
 import Hero from "@modules/home/components/hero"
 import SkeletonHomepageProducts from "@modules/skeletons/components/skeleton-homepage-products"
 import { Metadata } from "next"

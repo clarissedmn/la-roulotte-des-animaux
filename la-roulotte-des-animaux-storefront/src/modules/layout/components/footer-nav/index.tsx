@@ -11,7 +11,7 @@ const FooterNav = () => {
   const { product_categories } = useProductCategories()
 
   return (
-    <div className="border-t border-ui-border-base w-screen">
+    <div className="w-screen">
       <div className="content-container flex flex-col">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
           <div>
