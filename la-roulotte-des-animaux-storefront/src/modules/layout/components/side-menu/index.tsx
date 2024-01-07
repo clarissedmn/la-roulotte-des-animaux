@@ -6,7 +6,7 @@ import { useToggleState } from "@medusajs/ui"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/presentation",
+  Store: "/card",
   Search: "",
   Account: "/account",
   Cart: "/cart",

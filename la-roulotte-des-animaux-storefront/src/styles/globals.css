@@ -2,6 +2,13 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  @font-face {
+    font-family: 'Baguet Script';
+    src: url('../../public/fonts/baguet_script_regular-webfont.woff') format('woff')
+  }
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

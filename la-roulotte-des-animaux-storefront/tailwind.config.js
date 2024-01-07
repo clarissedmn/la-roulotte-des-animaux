@@ -24,7 +24,7 @@ module.exports = {
           0: "#FFFFFF",
           5: "#F9FAFB",
           10: "#F3F4F6",
-          20: "#E5E7EB",
+          20: "#FAF5EF",
           30: "#D1D5DB",
           40: "#9CA3AF",
           50: "#6B7280",
@@ -33,6 +33,13 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        green: {
+          20: "#BBCA8D",
+          50: "#134E4A"
+        },
+        blue: {
+          20: "#B7C9CF"
+        }
       },
       borderRadius: {
         none: "0px",
@@ -58,16 +65,8 @@ module.exports = {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
+        baguet: ['Baguet Script', 'sans-serif'],
+        vietnam: ["Be Vietnam Pro", 'sans-serif']
       },
       keyframes: {
         ring: {

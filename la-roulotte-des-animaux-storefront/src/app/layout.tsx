@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="en" data-mode="light">
       <body>
         <Providers>
-          <main className="relative px-12">{children}</main>
+          <main className="relative bg-grey-20">{children}</main>
         </Providers>
       </body>
     </html>

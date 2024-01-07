@@ -1,152 +1,52 @@
 "use client"
 
-import clsx from "clsx"
-import { useCollections, useProductCategories } from "medusa-react"
-import { Text } from "@medusajs/ui"
-import Link from "next/link"
-import MedusaCTA from "../medusa-cta"
+import Image from "next/image";
+import React from "react";
+import Link from "next/link";
 
 const FooterNav = () => {
-  const { collections } = useCollections()
-  const { product_categories } = useProductCategories()
 
   return (
-    <div>
-      <div className="content-container flex flex-col">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
-            <Link
-              href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-            >
-              La Roulotte des animaux
-            </Link>
-          </div>
-          <div className="text-small-regular grid grid-cols-3 gap-x-10 md:gap-x-16">
-            {product_categories && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
-                </span>
-                <ul className="grid grid-cols-1 gap-2">
-                  {product_categories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
-
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
-
-                    return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
-                      >
-                        <Link
-                          className={clsx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
-                          href={`/${c.handle}`}
-                        >
-                          {c.name}
-                        </Link>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <Link
-                                    className="hover:text-ui-fg-base"
-                                    href={`/${child.handle}`}
-                                  >
-                                    {child.name}
-                                  </Link>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            )}
-            {collections && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
-                </span>
-                <ul
-                  className={clsx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
-                  {collections?.slice(0, 6).map((c) => (
-                    <li key={c.id}>
-                      <Link
-                        className="hover:text-ui-fg-base"
-                        href={`/collections/${c.handle}`}
-                      >
-                        {c.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div className="absolute bottom-0 p-6 md:p-8">
+        <div className="flex-1 basis-0 h-full flex items-center gap-3">
+          <Link href="/">
+              <Image
+                  src="/images/logo_mono.svg"
+                  className="rounded-soft h-full object-cover"
+                  height={60}
+                  width={60}
+                  alt=""
+              />
+          </Link>
+          <p className="font-baguet text-lg leading-5">La Roulotte<br /> des Animaux</p>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
-          </Text>
-          <MedusaCTA />
-        </div>
+        {/*<ul className="flex pb-6 gap-3 items-center">*/}
+        {/*  <li className="bg-grey-90 p-2 rounded-full">*/}
+        {/*    <a href="https://www.facebook.com/LaRoulottedesAnimaux/" target="_blank" aria-label="Page Facebook de la Roulotte des Animaux (nouvelle fenêtre)">*/}
+        {/*        <Image*/}
+        {/*            src="/images/facebook.svg"*/}
+        {/*            className="rounded-soft"*/}
+        {/*            height={20}*/}
+        {/*            width={20}*/}
+        {/*            alt=""*/}
+        {/*        />*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*  <li className="bg-grey-90 p-2 rounded-full">*/}
+        {/*    <a href="https://www.instagram.com/laroulottedesanimaux/" target="_blank" aria-label="Page Instagram de la Roulotte des Animaux (nouvelle fenêtre)">*/}
+        {/*        <Image*/}
+        {/*            src="/images/instagram.svg"*/}
+        {/*            className="rounded-soft"*/}
+        {/*            height={20}*/}
+        {/*            width={20}*/}
+        {/*            alt=""*/}
+        {/*        />*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*</ul>*/}
+        {/*<a href="mailto:laroulottedesanimaux@gmail.com" className="font-vietnam">laroulottedesanimaux@gmail.com</a>*/}
+        {/*<p className="font-vietnam">07 62 60 03 51</p>*/}
       </div>
-    </div>
   )
 }
 

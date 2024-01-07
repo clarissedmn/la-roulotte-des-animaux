@@ -20,6 +20,7 @@
     "@types/react": "17.0.40"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.19.0",
     "@headlessui/react": "^1.6.1",
     "@hookform/error-message": "^2.0.0",
     "@medusajs/link-modules": "^0.2.3",
@@ -36,6 +37,7 @@
     "@tanstack/react-query": "^4.22.4",
     "algoliasearch": "^4.20.0",
     "clsx": "^1.1.1",
+    "contentful": "^10.6.16",
     "lodash": "^4.17.21",
     "medusa-react": "^9.0.0",
     "next": "^14.0.0",
