@@ -115,7 +115,7 @@ async function logger(
 export const config: MiddlewaresConfig = {
   routes: [
     {
-      matcher: "/presentation/custom",
+      matcher: "/store/custom",
       middlewares: [logger],
     },
   ],
@@ -130,7 +130,7 @@ You might only want to apply middleware to certain HTTP methods. You can do so b
 export const config: MiddlewaresConfig = {
   routes: [
     {
-      matcher: "/presentation/custom",
+      matcher: "/store/custom",
       method: "GET",
       middlewares: [logger],
     },
@@ -157,7 +157,7 @@ export const config: MiddlewaresConfig = {
   routes: [
     {
       method: "POST",
-      matcher: "/presentation/custom",
+      matcher: "/store/custom",
       middlewares: [urlencoded()],
     },
   ],

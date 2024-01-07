@@ -1,5 +1,5 @@
 import { getCollectionsList } from "@lib/data"
-import FeaturedProducts from "modules/home/components/presentation"
+import Presentation from "modules/home/components/presentation"
 import Hero from "@modules/home/components/hero"
 import SkeletonHomepageProducts from "@modules/skeletons/components/skeleton-homepage-products"
 import { Metadata } from "next"
@@ -18,7 +18,7 @@ export default async function Home() {
     <>
       <Hero />
       <Suspense fallback={<SkeletonHomepageProducts count={count} />}>
-        <FeaturedProducts collections={collections} />
+        <Presentation />
       </Suspense>
     </>
   )

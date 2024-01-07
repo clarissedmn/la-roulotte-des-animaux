@@ -1,13 +1,12 @@
 import Link from "next/link"
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
-import { XMark, ArrowRightMini } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
-import CountrySelect from "../country-select"
+import { XMark } from "@medusajs/icons"
+import { useToggleState } from "@medusajs/ui"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
+  Store: "/presentation",
   Search: "",
   Account: "/account",
   Cart: "/cart",
@@ -29,7 +28,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
             <>
               <div className="relative flex h-full">
                 <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
-                  Menu
+                  Menudzk
                 </Popover.Button>
               </div>
 
@@ -86,18 +85,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                         onMouseEnter={toggleState.open}
                         onMouseLeave={toggleState.close}
                       >
-                        <CountrySelect toggleState={toggleState} />
-                        <ArrowRightMini
-                          className={clx(
-                            "transition-transform duration-150",
-                            toggleState.state ? "-rotate-90" : ""
-                          )}
-                        />
                       </div>
-                      <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
-                        reserved.
-                      </Text>
                     </div>
                   </div>
                 </Popover.Panel>
