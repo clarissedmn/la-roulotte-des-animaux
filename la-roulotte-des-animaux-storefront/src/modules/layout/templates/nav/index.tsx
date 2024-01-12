@@ -46,7 +46,7 @@ const Nav = () => {
                 className="rounded-soft h-full object-cover"
                 height={50}
                 width={50}
-                alt=""
+                alt="La Roulotte des Animaux Accueil"
               />
             </Link>
             <p className="font-baguet text-lg leading-5">La Roulotte<br /> des Animaux</p>

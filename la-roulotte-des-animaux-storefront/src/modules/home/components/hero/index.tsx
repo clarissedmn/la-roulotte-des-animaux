@@ -20,7 +20,7 @@ const Hero = ({ items }: { items: HeroContentProps }) => {
               </button>
           </div>
           <Image className="absolute left-0 pt-60 pl-10" src="/images/bubble.svg" alt="" height={120} width={120}/>
-          <img className=" rounded-3xl h-80 md:h-auto xl:rounded-l-3xl xl:rounded-r-none" src={image.fields.file.url}/>
+          <img className=" rounded-3xl h-80 md:h-auto xl:rounded-l-3xl xl:rounded-r-none" alt="" src={image.fields.file.url}/>
       </div>
   )
 }

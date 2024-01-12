@@ -1,5 +1,6 @@
 import Hero from "@modules/home/components/hero"
 import Card from "@modules/home/components/card"
+import Presentation from "@modules/home/components/presentation"
 import { Metadata } from "next"
 import { fetchData } from "../../create-client-contentful"
 import type { Document } from '@contentful/rich-text-types';
@@ -40,6 +41,34 @@ type HeroContent = {
         includes: {
             Asset: Record<string, unknown>[][];
         };
+};
+
+type PresentationContent = {
+    sys: {
+        type: 'Array';
+    };
+    total: number;
+    skip: number;
+    limit: number;
+    items: {
+        metadata: Record<string, unknown>;
+        sys: Record<string, unknown>;
+        fields: {
+            presentationDescription: Document;
+            presentationTitle: string;
+            presentationImage: {
+                fields: {
+                    title: string;
+                    file: {
+                        url: string;
+                    }
+                }
+            }
+        };
+    }[];
+    includes: {
+        Asset: Record<string, unknown>[][];
+    };
 };
 
 type CardContent = {
@@ -85,6 +114,20 @@ export type HeroContentProps = {
     }[];
 };
 
+export type PresentationContentProps = {
+    items: {
+        title: string;
+        description: ReactNode;
+        image: {
+            fields: {
+                title: string;
+                file: {
+                    url:string;
+                }
+            }
+        };
+    }[];
+};
 
 export type CardContentProps = {
     items: {
@@ -99,6 +142,7 @@ export type CardContentProps = {
 
 export default async function Home() {
   const heroContent: HeroContent = await fetchData({model: "home"})
+  const presentationContent: PresentationContent = await fetchData({model: "presentation"})
   const cardContent: CardContent = await fetchData({model: "card"})
   const formattedHeroContent: HeroContentProps = {items: heroContent.items.map((item) => ({
     title: item.fields.title,
@@ -112,10 +156,16 @@ export default async function Home() {
           url : item.fields.imageCard.fields.file.url,
       },
   }))}
+  const formattedPresentationContent: HeroContentProps = {items: presentationContent.items.map((item) => ({
+            title: item.fields.presentationTitle,
+            description: documentToReactComponents(item.fields.presentationDescription),
+            image: item.fields.presentationImage,
+        }))}
 
   return (
     <>
       <Hero items={formattedHeroContent}/>
+      <Presentation items={formattedPresentationContent}/>
       <div className="p-8 xl:px-36">
         <h2 className="font-baguet text-3xl text-center p-6">Participez à nos ateliers !</h2>
           <div className="flex flex-wrap gap-10 justify-around">
